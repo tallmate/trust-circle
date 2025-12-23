@@ -14,21 +14,21 @@ dependencies {
     implementation(project(":api"))
 
     // Spring Boot starters
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-jooq")
+    implementation(libs.spring.boot.starter.web)
+    implementation(libs.spring.boot.starter.data.jpa)
+    implementation(libs.spring.boot.starter.security)
+    implementation(libs.spring.boot.starter.actuator)
+    implementation(libs.spring.boot.starter.jooq)
 
     // Flyway for database migrations
-    implementation("org.flywaydb:flyway-core")
-    implementation("org.flywaydb:flyway-database-postgresql")
+    implementation(libs.flyway.core)
+    implementation(libs.flyway.database.postgresql)
 
     // PostgreSQL driver (needed at runtime and for Flyway/jOOQ)
-    implementation("org.postgresql:postgresql")
+    implementation(libs.postgresql)
 
     // jOOQ code generator (only needed at build time)
-    jooqGenerator("org.postgresql:postgresql")
+    jooqGenerator(libs.postgresql)
 }
 
 // Flyway configuration
@@ -43,7 +43,7 @@ flyway {
 // jOOQ code generation configuration
 jooq {
     // Match Spring Boot's jOOQ version
-    version.set("3.19.27")
+    version.set(libs.versions.jooq.get())
 
     configurations {
         create("main") {

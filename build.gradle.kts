@@ -1,16 +1,16 @@
 buildscript {
     dependencies {
-        classpath("org.postgresql:postgresql:42.7.4")
-        classpath("org.flywaydb:flyway-database-postgresql:11.15.0")
+        classpath(libs.postgresql)
+        classpath(libs.flyway.database.postgresql)
     }
 }
 
 plugins {
     java
-    id("org.springframework.boot") version "3.5.7" apply false
-    id("io.spring.dependency-management") version "1.1.7" apply false
-    id("org.flywaydb.flyway") version "11.15.0" apply false
-    id("nu.studer.jooq") version "9.0" apply false
+    alias(libs.plugins.spring.boot) apply false
+    alias(libs.plugins.spring.dependency.management) apply false
+    alias(libs.plugins.flyway) apply false
+    alias(libs.plugins.jooq) apply false
 }
 
 group = "com.rbohush.trustcircle"
